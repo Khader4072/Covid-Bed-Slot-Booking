@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("patient")
+  phone     String?
+  hospitalId String?
+  createdAt DateTime @default(now())
+
+  bookings      Booking[]      @relation("PatientBookings")
+  notifications Notification[]
+}
+
+model Hospital {
+  id          String   @id @default(cuid())
+  name        String
+  city        String
+  state       String
+  address     String
+  phone       String
+  email       String
+  isVerified  Boolean  @default(false)
+  totalBeds   Int
+  generalBeds Int      @default(0)
+  icuBeds     Int      @default(0)
+  oxygenBeds  Int      @default(0)
+  ventilatorBeds Int   @default(0)
+  rating      Float    @default(4.5)
+  imageUrl    String?
+  pincode     String?
+  createdAt   DateTime @default(now())
+
+  bookings Booking[]
+}
+
+model Booking {
+  id             String   @id @default(cuid())
+  patientId      String
+  hospitalId     String
+  bedType        String
+  status         String   @default("pending")
+  admissionDate  String
+  covidSeverity  String
+  notes          String?
+  bookedAt       DateTime @default(now())
+
+  patient  User     @relation("PatientBookings", fields: [patientId], references: [id])
+  hospital Hospital @relation(fields: [hospitalId], references: [id])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  type      String   @default("booking")
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CoviCare – Covid Bed Slot Booking SaaS
 
-## Getting Started
+A full-stack SaaS portfolio app for booking Covid hospital beds in real-time across India.
 
-First, run the development server:
+## 🚀 Getting Started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔑 Demo Credentials (any password)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Role | Email |
+|------|-------|
+| Patient | `patient@demo.com` |
+| Hospital Admin | `admin@demo.com` |
+| Super Admin | `superadmin@demo.com` |
 
-## Learn More
+## 📄 Pages
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page with hero, features, and hospital cards |
+| `/hospitals` | Search & filter hospitals by city, bed type, availability |
+| `/hospitals/[id]` | Hospital detail with live bed counts + booking form |
+| `/login` | Auth page with quick demo login |
+| `/register` | Patient registration |
+| `/dashboard` | Patient dashboard — bookings, notifications |
+| `/admin` | Hospital Admin — manage bookings, bed stats |
+| `/super-admin` | Super Admin — platform-wide analytics |
+| `/about` | About page with tech stack & timeline |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js 14** (App Router, TypeScript)
+- **Tailwind CSS** — utility-first styling
+- **Lucide React** — icons
+- **React Context** — global state management
+- **Mock data** — no backend required (portfolio-ready)
 
-## Deploy on Vercel
+## 🛏️ Bed Types
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- General Ward
+- ICU
+- Oxygen Support
+- Ventilator
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👤 User Roles
+
+- **Patient** — search hospitals, book beds, track bookings
+- **Hospital Admin** — confirm/reject bookings, view bed stats
+- **Super Admin** — platform overview, all hospitals & bookings
